@@ -1,5 +1,5 @@
 {% set name = "trio-util" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 2f3a49085602885d2535fce43b17602c55a8fe98045a33c92e9c511054b20352
+  sha256: 3c1d5c736bbe3c4a62de469b282298fe39a72e612eb63c19a874e47b44331298
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -38,7 +38,7 @@ about:
   license_family: MIT
   # License file manually packaged: See https://github.com/groove-x/trio-util/pull/11
   license_file: LICENSE
-  summary: 'Utility library for the Python Trio async/await framework'
+  summary: Utility library for the Python Trio async/await framework
   doc_url: https://trio-util.readthedocs.io/en/latest/
 
 extra:
