@@ -1,13 +1,13 @@
 {% set name = "trio-util" %}
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 8dc5014dd00e6a24d0f048f8b723f2804c61ddc08ace9555db10fb7e1fee704a
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: b95030a9976a7a8ed8f61c24cafbc682ecdde76d1bca1b8b42c74df074adc16d
 
 build:
   noarch: python
@@ -16,14 +16,17 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - async_generator
     - trio >=0.11.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - trio_util
   commands:
