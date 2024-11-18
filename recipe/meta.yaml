@@ -25,6 +25,8 @@ requirements:
     - trio >=0.11.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - trio_util
   commands:
